@@ -1,0 +1,34 @@
+[package]
+name = "fmt-iter"
+description = "Print all items from an iterator"
+version = "0.0.0"
+authors = ["khai96_ <hvksmr1996@gmail.com>"]
+edition = "2018"
+readme = "README.md"
+license = "MIT"
+documentation = "https://docs.rs/fmt-iter"
+repository = "https://github.com/KSXGitHub/fmt-iter"
+categories = ["no-std"]
+keywords = [
+  "display",
+  "repeat",
+  "iterator",
+]
+include = [
+  "*.rs",
+  "/Cargo.toml",
+  "/README.md",
+  "/LICENSE.md",
+]
+
+[lib]
+name = "fmt_iter"
+path = "lib.rs"
+
+[[test]]
+name = "test"
+path = "test.rs"
+
+[dependencies]
+pipe-trait = "^0.3.2"
+derive_more = "^0.99.13"
