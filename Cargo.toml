@@ -30,5 +30,8 @@ name = "test"
 path = "test.rs"
 
 [dependencies]
-pipe-trait = "^0.3.2"
 derive_more = "^0.99.13"
+itertools = "^0.10.0"
+
+[dev-dependencies]
+pipe-trait = "^0.3.2"

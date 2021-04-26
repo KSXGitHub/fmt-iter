@@ -29,7 +29,7 @@
 #![no_std]
 use core::fmt::{Display, Error, Formatter};
 use derive_more::{AsMut, AsRef, Deref, DerefMut, From};
-use pipe_trait::Pipe;
+use itertools::repeat_n;
 
 /// Wrap around an [`Iterator`] to print all items.
 ///
@@ -133,8 +133,5 @@ pub fn repeat<Value: Display + Clone>(
     value: Value,
     times: usize,
 ) -> FmtIter<impl Iterator<Item = Value> + Clone> {
-    value
-        .pipe(core::iter::repeat)
-        .take(times)
-        .pipe(FmtIter::from)
+    FmtIter::from(repeat_n(value, times))
 }
