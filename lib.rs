@@ -132,6 +132,6 @@ where
 pub fn repeat<Value: Display + Clone>(
     value: Value,
     times: usize,
-) -> FmtIter<impl Iterator<Item = Value> + Clone> {
+) -> FmtIter<impl Iterator<Item = Value> + ExactSizeIterator + Clone> {
     FmtIter::from(repeat_n(value, times))
 }

@@ -39,3 +39,10 @@ fn exact_size_iter() {
     let expected = 5;
     assert_eq!(actual, expected);
 }
+
+#[test]
+fn repeat_len() {
+    let actual = repeat('x', 5).len();
+    let expected = 5;
+    assert_eq!(actual, expected);
+}
