@@ -28,7 +28,7 @@
 
 #![no_std]
 use core::fmt::{Display, Error, Formatter};
-use derive_more::{AsMut, AsRef, Deref, DerefMut, From, IntoIterator};
+use derive_more::{AsMut, AsRef, Deref, DerefMut, From};
 use pipe_trait::Pipe;
 
 /// Wrap around an [`Iterator`] to print all items.
@@ -57,7 +57,7 @@ use pipe_trait::Pipe;
 /// let fmt_iter = FmtIter::from(&[0, 1, 2, 3]);
 /// assert_eq!(fmt_iter.to_string(), "0123");
 /// ```
-#[derive(Debug, Clone, Copy, PartialEq, Eq, AsMut, AsRef, Deref, DerefMut, From, IntoIterator)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, AsMut, AsRef, Deref, DerefMut, From)]
 pub struct FmtIter<Inner>(Inner)
 where
     Inner: Iterator + Clone,
@@ -91,6 +91,22 @@ where
             write!(formatter, "{}", item)?;
         }
         Ok(())
+    }
+}
+
+impl<Inner> Iterator for FmtIter<Inner>
+where
+    Inner: Iterator + Clone,
+    Inner::Item: Display,
+{
+    type Item = Inner::Item;
+
+    fn next(&mut self) -> Option<Self::Item> {
+        self.0.next()
+    }
+
+    fn size_hint(&self) -> (usize, Option<usize>) {
+        self.0.size_hint()
     }
 }
 
