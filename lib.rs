@@ -110,6 +110,16 @@ where
     }
 }
 
+impl<Inner> ExactSizeIterator for FmtIter<Inner>
+where
+    Inner: ExactSizeIterator + Clone,
+    Inner::Item: Display,
+{
+    fn len(&self) -> usize {
+        self.0.len()
+    }
+}
+
 /// Print a certain value multiple times.
 ///
 /// **Example:**
