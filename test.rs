@@ -24,3 +24,18 @@ fn display_slice_string() {
     let expected = "abcdefghi";
     assert_eq!(actual, expected);
 }
+
+#[test]
+fn iter() {
+    #[allow(clippy::infinite_iter)] // false negative in rust-analyzer
+    let actual: Vec<_> = repeat('x', 5).collect();
+    let expected = ['x', 'x', 'x', 'x', 'x'];
+    assert_eq!(actual, expected);
+}
+
+#[test]
+fn exact_size_iter() {
+    let actual = FmtIter::from(&[0, 1, 2, 3, 4]).len();
+    let expected = 5;
+    assert_eq!(actual, expected);
+}
