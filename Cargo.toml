@@ -31,7 +31,7 @@ path = "test.rs"
 
 [dependencies]
 derive_more = "^0.99.14"
-itertools = "^0.10.0"
+itertools = "^0.10.1"
 
 [dev-dependencies]
 pipe-trait = "^0.3.2"
