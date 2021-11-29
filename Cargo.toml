@@ -30,7 +30,7 @@ name = "test"
 path = "test.rs"
 
 [dependencies]
-derive_more = "^0.99.16"
+derive_more = "^0.99.17"
 itertools = "^0.10.1"
 
 [dev-dependencies]
