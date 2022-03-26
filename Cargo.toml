@@ -34,4 +34,4 @@ derive_more = "^0.99.17"
 itertools = "^0.10.3"
 
 [dev-dependencies]
-pipe-trait = "^0.3.2"
+pipe-trait = "^0.4.0"
