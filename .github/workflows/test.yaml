@@ -19,10 +19,10 @@ jobs:
           - macos-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Cache
-        uses: actions/cache@v2.1.7
+        uses: actions/cache@v3.0.5
         timeout-minutes: 1
         continue-on-error: true
         if: matrix.os != 'macos-latest' # Cache causes errors on macOS
@@ -63,10 +63,10 @@ jobs:
           - macos-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - name: Cache
-        uses: actions/cache@v2.1.7
+        uses: actions/cache@v3.0.5
         timeout-minutes: 1
         continue-on-error: true
         if: matrix.os != 'macos-latest' # Cache causes errors on macOS
@@ -102,7 +102,7 @@ jobs:
           - ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
 
       - uses: actions-rs/toolchain@v1.0.7
         with:
